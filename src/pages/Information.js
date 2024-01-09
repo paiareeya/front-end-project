@@ -166,7 +166,7 @@ const Information = () => {
     return (
         <div className='from-information flex flex-col gap-8 pt-10 px-10 min-h-screen pb-2 bg-[#233794] text-white'>
             <div className='flex border-b-2 border-white/10 h-24'>
-                <p className='text-[40px] font-semibold pt-2 pr-10 tracking-wider border-r-2 border-white/10'>LOGOoo</p>
+                <p className='text-[40px] font-semibold pt-2 pr-10 tracking-wider border-r-2 border-white/10'>LOGO</p>
                 <div className='flex flex-wrap justify-between w-[100%] text-[15px] pt-7 pl-1 tracking-wider'>
                     <p>Test Front-end (Amethyst Solutions)</p>
                     <p className='font-semibold pr-5'>นายทดสอบ ทำดี</p>
