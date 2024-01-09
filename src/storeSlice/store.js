@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import contextReducer from './contextSlice/Context';  // ไฟล์ที่มี reducer ของ contextSlice
+import contextReducer from './contextSlice/Context'; 
 
 const store = configureStore({
     reducer: {

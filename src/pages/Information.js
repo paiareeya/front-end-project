@@ -141,10 +141,16 @@ const Information = () => {
     };
 
     const Delete = async () => {
+        if (!information) {
+            return
+        }
         await dispatch(deletePerformance(selectionDelete));
     }
 
     const DeleteAll = async () => {
+        if (!information) {
+            return
+        }
         let get = []
         information.forEach(element => {
             get.push(element.id)

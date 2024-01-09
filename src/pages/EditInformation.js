@@ -275,7 +275,7 @@ const EditInformation = () => {
                         <p className='font-bold text-[16px] p-5'>ข้อมูลผลงาน</p>
                         <p className='w-[100%] h-[1px] bg-zinc-200/50 leading-3'></p>
                         <div className='flex flex-col gap-4 text-[15px] p-5'>
-                            <div className='flex flex-wrap gap-10 w-[70%]'>
+                            <div className='flex flex-wrap gap-10 w-full max-w-7xl'>
                                 <label className='flex flex-col gap-2'>
                                     <p className='font-bold'>ระยะเวลาการแสดงผลงานให้ผู้อื่นเห็น</p>
                                     <div className="container w-48">
@@ -299,7 +299,7 @@ const EditInformation = () => {
                                         </label>
                                     </div>
                                 </label>
-                                <div className='flex flex-wrap gap-10'>
+                                <div className='flex flex-wrap gap-10 w-full max-w-2xl'>
                                     <label className='flex flex-col gap-1'>
                                         <label className='flex gap-1'>
                                             <p className='font-bold'>วันที่เริ่มต้น</p>
@@ -319,12 +319,12 @@ const EditInformation = () => {
                                         ) : null}
                                         <p className='text-[12px] text-black/70'>ตัวอย่าง : 01/01/2565</p>
                                     </label>
-                                    <label className='flex flex-col gap-1'>
+                                    <label className='flex flex-col gap-1 w-full max-w-96'>
                                         <label className='flex gap-1'>
                                             <p className='font-bold'>วันที่สิ้นสุด</p>
                                             <p className='font-bold text-red-500'>*</p>
                                         </label>
-                                        <div className='flex flex-wrap gap-3 items-center'>
+                                        <div className='flex flex-wrap gap-3 items-center w-full max-w-3xl'>
                                             <div className={`checkbox-wrapper-51 ${!checkboxEndDate ? 'unchecked' : ''}`}>
                                                 <input id="cbx-51" type="checkbox" checked={checkboxEndDate} onChange={handleCheckboxEndDate} />
                                                 <label className="toggle" htmlFor="cbx-51">
@@ -335,7 +335,7 @@ const EditInformation = () => {
                                                     </span>
                                                 </label>
                                             </div>
-                                            <label className='flex gap-3 items-center h-9 pr-2 border-2 border-zinc-200/50 rounded-md pl-2 py-1 placeholder:text-black/25 shadow-sm shadow-zinc-200 text-[14px]'>
+                                            <label className='flex w-full max-w-56 gap-3 items-center h-9 pr-2 border-2 border-zinc-200/50 rounded-md pl-2 py-1 placeholder:text-black/25 shadow-sm shadow-zinc-200 text-[14px]'>
                                                 <FontAwesomeIcon icon={faCalendar} className='text-black/60'></FontAwesomeIcon>
                                                 {checkboxEndDate ? (
                                                     <input
