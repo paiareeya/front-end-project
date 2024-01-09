@@ -1,0 +1,60 @@
+.from-navbar {
+    position: relative;
+    width: 100%;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    height: 60px;
+    z-index: 999;
+    background: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.navbar-home {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+
+    position: relative;
+    display: inline-block;
+    letter-spacing: 2px;
+    padding: 0 3%;
+}
+
+.navbar-home::before,
+.navbar-home::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #348cff;
+    transform: scaleX(0);
+    transition: transform .25s;
+    padding: 0 1%;
+}
+
+.navbar-home::before {
+    top: -3px;
+    transform-origin: left;
+}
+
+.navbar-home::after {
+    bottom: -3px;
+    transform-origin: right;
+}
+
+.navbar-home:hover::before,
+.navbar-home:hover::after {
+    transform: scaleX(1);
+}
+
+.active-navbar-home::before,
+.active-navbar-home::after {
+    transform: scaleX(1);
+}

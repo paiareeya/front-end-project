@@ -1,0 +1,78 @@
+.section-information {
+    position: relative;
+    background-color: rgb(244 244 245);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+    border-radius: 15px 15px 0 0;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.section-information::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 30px;
+    height: 25px;
+    background-color: rgb(244 244 245);
+    left: -25px;
+    bottom: 0;
+}
+
+.section-information::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 30px;
+    height: 25px;
+    background-color: rgb(244 244 245);
+    right: -25px;
+    bottom: 0;
+}
+
+.border-information {
+    position: absolute;
+    width: 30px;
+    height: 25px;
+    background-color: #233794;
+    right: -30px;
+    bottom: 0;
+    border-radius: 0 0 0 20px;
+}
+
+.border-information::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 30px;
+    height: 25px;
+    background-color: #233794;
+    left: -154px;
+    bottom: 0;
+    border-radius: 0 0 20px 0;
+    z-index: 999;
+}
+
+.css-ptkaw2-MuiDataGrid-root .MuiDataGrid-withBorderColor {
+    border: none !important;
+}
+
+.css-qvtrhg-MuiDataGrid-virtualScroller {
+    min-height: 60px !important;
+}
+
+.slick-prev {
+    left: 6px !important;
+    z-index: 999 !important;
+}
+
+.slick-next {
+    right: 18px !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-size: 30px !important;
+}
