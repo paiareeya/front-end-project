@@ -29,6 +29,7 @@ const EditInformation = () => {
     const dispatch = useDispatch();
     const context = useSelector((state) => state.context);
     const [value, setValue] = useState('');
+    const [description, setDescription] = useState('');
     const category = [
         { name: 'วรรณกรรม' },
         { name: 'ศิลปกรรม' },
@@ -48,6 +49,7 @@ const EditInformation = () => {
             startDate: getInformation.startDate,
             endDate: getInformation.endDate,
         });
+        setDescription(getInformation.description);
         if (getInformation.status === "แสดง") {
             setCheckboxShow(true);
             setCheckboxNotShow(false);
@@ -63,48 +65,75 @@ const EditInformation = () => {
 
     const changeName = (e) => {
         const name = e.target.value;
-        setCopyright({
-            name: name,
-            phone: copyright.phone,
-            email: copyright.email,
-        });
+        let MAX_LENGTH = 255
+        if (name.length <= MAX_LENGTH) {
+            setCopyright({
+                name: name,
+                phone: copyright.phone,
+                email: copyright.email,
+            });
+        }
     }
 
     const changePhone = (e) => {
         const phone = e.target.value;
         const sanitizedPhone = phone.replace(/[^0-9]/g, '');
-        setCopyright({
-            name: copyright.name,
-            phone: sanitizedPhone,
-            email: copyright.email,
-        });
+        let MAX_LENGTH = 10
+        if (sanitizedPhone.length <= MAX_LENGTH) {
+            setCopyright({
+                name: copyright.name,
+                phone: sanitizedPhone,
+                email: copyright.email,
+            });
+        }
     }
 
     const changeEmail = (e) => {
         const email = e.target.value;
-        setCopyright({
-            name: copyright.name,
-            phone: copyright.phone,
-            email: email,
-        });
+        let MAX_LENGTH = 255
+        if (email.length <= MAX_LENGTH) {
+            setCopyright({
+                name: copyright.name,
+                phone: copyright.phone,
+                email: email,
+            });
+        }
+    }
+
+    const changeDescription = (e) => {
+        const description = e.target.value;
+        let MAX_LENGTH = 1000
+        if (description.length <= MAX_LENGTH) {
+            setDescription(description);
+        }
     }
 
     const changeStartDate = (e) => {
         const startDate = e.target.value;
         const sanitizedStart = startDate.replace(/[^0-9/]/g, '');
-        setDate({
-            startDate: sanitizedStart,
-            endDate: date.endDate,
-        });
+        const numberOfSlashes = sanitizedStart.split('/').length - 1;
+        let MAX_LENGTH = 10
+        let MAX_SLASH = 2
+        if (sanitizedStart.length <= MAX_LENGTH && numberOfSlashes <= MAX_SLASH) {
+            setDate({
+                startDate: sanitizedStart,
+                endDate: date.endDate,
+            });
+        }
     }
 
     const changeEndDate = (e) => {
         const endDate = e.target.value;
         const sanitizedEnd = endDate.replace(/[^0-9/]/g, '');
-        setDate({
-            startDate: date.startDate,
-            endDate: sanitizedEnd,
-        });
+        const numberOfSlashes = sanitizedEnd.split('/').length - 1;
+        let MAX_LENGTH = 10
+        let MAX_SLASH = 2
+        if (sanitizedEnd.length <= MAX_LENGTH && numberOfSlashes <= MAX_SLASH) {
+            setDate({
+                startDate: date.startDate,
+                endDate: sanitizedEnd,
+            });
+        }
     }
     const validateValues = (inputValues) => {
         let errors = {};
@@ -358,29 +387,13 @@ const EditInformation = () => {
                                 <p className='font-bold'>รายละเอียด</p>
                                 <textarea
                                     className='max-w-7xl text-black/70 text-[14px] h-28 border-2 border-zinc-200/50 resize-none rounded-md outline-none p-2'
-                                    value={performance.description}
-                                    rows=""
-                                    cols=""></textarea>
+                                    value={description}
+                                    onChange={changeDescription}></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {/* <div className='bg-[#233794] text-white text-center w-full h-40 mt-20'>
-                <div className='w-[54%] h-full ml-auto mr-auto flex gap-6 items-center'>
-                    <p className='text-[55px] font-semibold pr-10 '>LOGO</p>
-                    <label className='flex flex-col items-start gap-3'>
-                        <p className='text-[16px]'>Amethyst Solutions Co,Ltd.</p>
-                        <p className='text-[12px]'>252/93(N) 17th Fl., Muang Thai-Phatra Complex Tower B, Rachadaphisek Road, Huaykwnag, Bangkok 10310</p>
-                        <label className='flex gap-3 items-center'>
-                            <FontAwesomeIcon icon={faFacebookF}></FontAwesomeIcon>
-                            <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
-                            <FontAwesomeIcon icon={faYoutube}></FontAwesomeIcon>
-                            <FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon>
-                        </label>
-                    </label>
-                </div>
-            </div> */}
             <div className='bg-[#233794] text-white w-full min-h-[139px] mt-11 py-3'>
                 <div className='w-[54%] min-h-[139px] ml-auto mr-auto mt-auto mb-auto flex flex-wrap gap-6 items-center'>
                     <p className='text-[55px] font-semibold pr-10 '>LOGO</p>

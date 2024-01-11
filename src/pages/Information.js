@@ -115,7 +115,10 @@ const Information = () => {
 
     const changeSearch = (e) => {
         const search = e.target.value;
-        setSearch(search);
+        let MAX_LENGTH = 255
+        if (search.length <= MAX_LENGTH) {
+            setSearch(search);
+        }
     }
 
     const Search = () => {

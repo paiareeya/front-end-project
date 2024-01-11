@@ -301,8 +301,8 @@ export const contextSlice = createSlice({
             return state
         },
         deletePerformance: (state, action) => {
-            const newData = state.filter(data => !action.payload.map(item => item.id).includes(data.id));
-            return newData;
+            state = state.filter(data => !action.payload.map(item => item.id).includes(data.id));
+            return state;
         },
     }
 })

@@ -4,7 +4,6 @@ import contextReducer from './contextSlice/Context';
 const store = configureStore({
     reducer: {
         context: contextReducer,
-        
     },
 });
 
